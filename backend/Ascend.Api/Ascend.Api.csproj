@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Ascend.Api</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.2.1" />
+    <PackageReference Include="Confluent.Kafka" Version="2.16.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.7" />
+    <PackageReference Include="Dapper" Version="2.1.89" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.12" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.3.0" />
+  </ItemGroup>
+
+  <!-- Publish the built React app as the site root. Build it first with:
+         cd frontend-react &amp;&amp; npm run build
+       The Link metadata maps ..\frontend-react\dist\* onto wwwroot\* in the
+       publish output (same layout as the MongoStudentApi deployment). -->
+  <ItemGroup>
+    <Content Include="..\..\frontend-react\dist\**" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>
